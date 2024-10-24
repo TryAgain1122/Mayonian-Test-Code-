@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { mockData, GameType } from "../api/gamesApi";
+import { mockData } from "../api/gamesApi";
 import GameCard from "./GameCard";
 import Loading from "./Loading";
+import { GameType } from "../types/apiTypes";
 
 interface GameListProps {
   selectedCategory: string;
