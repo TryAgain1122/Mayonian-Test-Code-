@@ -14,14 +14,6 @@ const Carousel = () => {
     }, 3000)
     return () => clearInterval(interval);
   },[isPaused, CarouselImages.length]);
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => prevIndex === 0 ? CarouselImages.length - 1 : prevIndex - 1)
-  }
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % CarouselImages.length)
-  }
   return (
     <div className="relative w-full h-64 md:h-[70vh] overflow-hidden">
       <div 
