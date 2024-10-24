@@ -4,9 +4,10 @@ import Carousel from '../components/Carousel';
 import Categories from '../components/Categories';
 import GameList from '../components/GameList';
 import Navbar from '../components/Navbar';
-import { GameType, CategoryKey } from '../api/gamesApi'; // Import necessary types
+import { CategoryKey } from '../api/gamesApi'; // Import necessary types
 import { RootState } from '../store/store';
 import { setSearchTerm, setSelectedCategory, toggleFavorite } from '../store/gameSlice';
+import { GameType } from '../types/apiTypes';
 
 const Home = () => {
   const dispatch = useDispatch();

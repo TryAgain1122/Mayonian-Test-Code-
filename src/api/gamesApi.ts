@@ -1,59 +1,15 @@
+import { CategoriesTypes, DataType, ImageType, MockData } from "../types/apiTypes";
 
 // Carousel Images
-export type ImageType = {
-    src: string
-}
 
 export const CarouselImages: ImageType[] = [
     { src: '/Images/casino1.jpg' },
     { src: '/Images/casino2.jpg' },
     { src: '/Images/casino3.jpg' }
 ]
-export const defaultColors = {
-    "defaultBlue": "#00A6FF",
-    "defaultGray": "#888888",
-    "defaultYellow": "#FFD600",
-}
 
 
-// export type GameProviderLogo = {
-//     title: GameProvider;
-//     logoUrl: string
-// }
 
-// export type GameType = {
-//     id:number;
-//     title: string;
-//     url: string;
-//     favorite: boolean;
-//     gameProvider: GameProvider;
-// }
-
-
-export type GameProvider =
-    | "playTech"
-    | "SkyWind Group"
-    | "Pragmatic Play"
-    | "Every Matrix"
-    | "Evolution"
-    | "Expanse"
-    | "Ezugi"
-    | "GameArt"
-    | "Habanero"
-    | "Hacksaw Gaming"
-    | "Inbel Games"
-    | "M Play"
-    | "Net Ent"
-    | "PG Slot Games"
-    | "Play N Go"
-    | "Play Son"
-    | "Red Tiger"
-    | "Relax Gaming";
-
-export type CategoriesTypes = {
-    category: string
-    logo: string
-}
 
 export const CategoriesLabels: CategoriesTypes[] = [
     { category: "START", logo: '/Images/fire.png' },
@@ -69,31 +25,9 @@ export const CategoriesLabels: CategoriesTypes[] = [
 ]
 
 
-export type GameType = {
-    id: number;
-    title: string;
-    favorite: boolean;
-    url: string;
-    gameProvider: GameProvider;
-}
 
-export type MockData = {
-    [key: string]: GameType[]
-}
 
-export type DataType = {
-    START: GameType[];
-    ALL: GameType[];
-    NEW: GameType[];
-    SLOTS: GameType[];
-    LIVE: GameType[];
-    JACKPOTS: GameType[];
-    SPORTS: GameType[];
-    FAVORITES: GameType[];
-    INVITE: GameType[];
-    CASINO_LIVE: GameType[];
-    CASHIER: GameType[];
-}
+
 export type CategoryKey = keyof DataType
 export const mockData: MockData = {
     START: [
