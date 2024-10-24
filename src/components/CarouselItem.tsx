@@ -12,5 +12,4 @@ const CarouselItem = ({imgUrl}:CarouselItemProps) => {
     </div>
   )
 }
-
 export default CarouselItem

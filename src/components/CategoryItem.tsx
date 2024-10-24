@@ -1,26 +1,17 @@
-import React from 'react';
-
 interface CategoryItemProps {
   Icon: string;
-  label: string;
-  isActive: boolean; // New prop for active state
-  onClick: () => void; // New prop for click handler
+  label: string
 }
-
-const CategoryItem: React.FC<CategoryItemProps> = ({ Icon, label, isActive, onClick }) => {
-  return (
-    <div 
-      className={`flex flex-col items-center p-2 cursor-pointer ${isActive ? 'underline' : ''}`} 
-      onClick={onClick} // Attach click handler
-    >
+const CategoryItem = ({Icon, label}:CategoryItemProps) => {
+return (
+  <div className="flex flex-col items-center p-2">
       <img 
-        alt={Icon}
-        src={Icon}
-        className="w-11 h-11"
-      />
+          alt={Icon}
+          src={Icon}
+          className="w-11 h-11"
+          />
       <div className="text-sm font-semibold">{label}</div>
-    </div>
-  );
-};
-
-export default CategoryItem;
+  </div>
+)
+}
+export default CategoryItem

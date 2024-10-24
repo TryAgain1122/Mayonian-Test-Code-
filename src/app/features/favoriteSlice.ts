@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { mockData } from '../../api/gamesApi';
 
-interface Game {
+export interface Game {
   id: number;
   title: string;
   favorite: boolean;
@@ -30,15 +30,14 @@ const favoritesSlice = createSlice({
       state.games = action.payload;
       state.filteredGames = action.payload;
     },
-    filterGames: (state, action: PayloadAction<{ query: string; category?: string }>) => {
-      const { query, category } = action.payload;
-      const lowercasedQuery = query.toLowerCase();
+    filterGames: (state, action: PayloadAction<string>) => {
+      const category = action.payload;
 
-      state.filteredGames = state.games.filter((game) => {
-        const matchesTitle = game.title.toLowerCase().includes(lowercasedQuery);
-        const matchesCategory = category ? game.category === category : true;
-        return matchesTitle && matchesCategory;
-      });
+      if (category === 'All') {
+        state.filteredGames = state.games;
+      } else {
+        state.filteredGames = state.games.filter(game => game.category === category)
+      }
     },
     addFavorite: (state, action: PayloadAction<number>) => {
       const game = state.games.find((game) => game.id === action.payload);

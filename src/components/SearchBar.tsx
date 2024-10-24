@@ -1,4 +1,18 @@
-const SearchBar = () => {
+import { ChangeEvent, useState } from "react";
+
+interface SearchProps {
+  onSearch: (searchTerm: string) => void;
+}
+
+const SearchBar = ({ onSearch }: SearchProps) => {
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchInput(value);
+    onSearch(value);
+  }
+
   return (
     <>
       <label
@@ -18,9 +32,9 @@ const SearchBar = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round" // Changed to camelCase
+              strokeLinejoin="round" // Changed to camelCase
+              strokeWidth="2" // Changed to camelCase
               d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
             />
           </svg>
@@ -30,6 +44,8 @@ const SearchBar = () => {
           id="default-search"
           className="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search"
+          value={searchInput}
+          onChange={handleSearchChange}
         />
       </div>
     </>
